@@ -18,22 +18,27 @@ export class HomePage implements OnInit {
   constructor(private router: Router, private sharedService: SharedService) { }
 
   async ngOnInit() {
-    this.isOpen = true;
-    try {
-      await fetch("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty").then((resp) => {
-        return resp.json();
-      }).then((postNums) => {
-        this.sharedService.postsIds = Object.values(postNums);
-        return this.sharedService.processPostsIds();
-      }).finally(() => {
+    const data = localStorage.getItem('postList');
+    if (data) {
+      this.router.navigate(['/posts'], { replaceUrl: true });
+    } else {
+      this.isOpen = true;
+      try {
+        await fetch("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty").then((resp) => {
+          return resp.json();
+        }).then((postNums) => {
+          this.sharedService.postsIds = Object.values(postNums);
+          return this.sharedService.processPostsIds();
+        }).finally(() => {
+          this.isOpen = false;
+          setTimeout(() => {
+            this.router.navigate(['/posts'], { replaceUrl: true });
+          }, 500);
+        })
+      } catch (error) {
         this.isOpen = false;
-        setTimeout(() => {
-          this.router.navigate(['/posts'], { replaceUrl: true });
-        }, 500);
-      })
-    } catch (error) {
-      this.isOpen = false;
-      console.error("Error processing post IDs: ", error);
+        console.error("Error processing post IDs: ", error);
+      }
     }
   }
 
