@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'ionic-app-base',
+  appId: 'com.cygntek.hviewer',
+  appName: 'Hackernews Viewer',
   webDir: 'www'
 };
 

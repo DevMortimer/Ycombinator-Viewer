@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.cygntek.hviewer;
 
 import com.getcapacitor.BridgeActivity;
 
