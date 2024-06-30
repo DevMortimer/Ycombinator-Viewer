@@ -28,7 +28,7 @@ export class HomePage implements OnInit {
       }).finally(() => {
         this.isOpen = false;
         setTimeout(() => {
-          this.router.navigate(['/posts']);
+          this.router.navigate(['/posts'], { replaceUrl: true });
         }, 500);
       })
     } catch (error) {

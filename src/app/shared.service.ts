@@ -46,7 +46,7 @@ export class SharedService {
         fetch(url).then((resp) => {
           return resp.json();
         }).then((data: Post) => {
-          if (data.type !== "story") {
+          if (data.type === "story") {
             this.postList.push(data);
           }
           count++;
