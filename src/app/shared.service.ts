@@ -39,8 +39,9 @@ export class SharedService {
   processPostsIds(): Promise<void> {
     return new Promise((resolve, reject) => {
       let count = 0;
+      let limit = 50;
 
-      for (let i = 0; i < this.postsIds.length; i++) {
+      for (let i = 0; i < limit; i++) {
         // fetch posts
         const url = "https://hacker-news.firebaseio.com/v0/item/" + this.postsIds[i] + ".json";
         fetch(url).then((resp) => {
@@ -50,7 +51,7 @@ export class SharedService {
             this.postList.push(data);
           }
           count++;
-          if (count === this.postsIds.length) {
+          if (this.postList.length >= limit || count >= limit) {
             localStorage.setItem('postList', JSON.stringify(this.postList));
             resolve();
           }

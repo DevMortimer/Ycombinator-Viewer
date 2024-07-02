@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon, IonCard, IonCardHeader, IonCardSubtitle, IonRow, IonCardTitle, IonCardContent, IonLabel } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon, IonCard, IonCardHeader, IonCardSubtitle, IonRow, IonCardTitle, IonCardContent, IonLabel, IonBackButton } from '@ionic/angular/standalone';
 import { Post, SharedService } from '../shared.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { Post, SharedService } from '../shared.service';
   templateUrl: './favorites.page.html',
   styleUrls: ['./favorites.page.scss'],
   standalone: true,
-  imports: [IonLabel, IonCardContent, IonCardTitle, IonRow, IonCardSubtitle, IonCardHeader, IonCard, IonIcon, IonButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonBackButton, IonLabel, IonCardContent, IonCardTitle, IonRow, IonCardSubtitle, IonCardHeader, IonCard, IonIcon, IonButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class FavoritesPage {
   posts: Array<Post> = [];

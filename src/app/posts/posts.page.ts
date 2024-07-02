@@ -38,11 +38,23 @@ export class PostsPage {
   }
 
   refresh() {
+    this.sharedService.postList = [];
+    this.sharedService.postsIds = [];
+    localStorage.removeItem('postList');
+    localStorage.setItem('forceRefresh', 'true');
     this.router.navigate(['/'], { replaceUrl: true });
   }
 
-  open(url: string) {
-    window.open(url, "_blank");
+  open(post: Post) {
+    if (post.url) {
+      window.open(post.url, "_blank");
+    } else {
+      this.openHackernewsPost(post);
+    }
+  }
+
+  openHackernewsPost(post: Post) {
+    window.open("https://news.ycombinator.com/item?id=" + post.id, "_blank");
   }
 
   bookmark(id: number) {
@@ -86,6 +98,10 @@ export class PostsPage {
 
   goToBookmarksPage() {
     this.router.navigate(['/favorites']);
+  }
+
+  identifyPost(index: number, post: Post) {
+    return post.id;
   }
 
 }

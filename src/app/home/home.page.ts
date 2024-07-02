@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonLoading } from '@ionic/angular/standalone';
 import { SharedService } from '../shared.service';
 
@@ -13,13 +13,15 @@ import { SharedService } from '../shared.service';
   imports: [IonLoading, IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage implements OnInit {
-  isOpen = false;
+  isOpen = false; // used for the loading visual
 
-  constructor(private router: Router, private sharedService: SharedService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService) { }
 
   async ngOnInit() {
     const data = localStorage.getItem('postList');
-    if (data) {
+    const force = localStorage.getItem('forceRefresh')
+
+    if (data && !force) {
       this.router.navigate(['/posts'], { replaceUrl: true });
     } else {
       this.isOpen = true;
