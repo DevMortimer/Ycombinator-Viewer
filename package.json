@@ -20,6 +20,7 @@
     "@angular/compiler": "^18.0.0",
     "@angular/core": "^18.0.0",
     "@angular/forms": "^18.0.0",
+    "@angular/language-server": "^18.0.0",
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
@@ -47,6 +48,7 @@
     "@angular/cli": "^18.0.0",
     "@angular/compiler-cli": "^18.0.0",
     "@angular/language-service": "^18.0.0",
+    "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "6.1.0",
     "@ionic/angular-toolkit": "^11.0.1",
     "@types/jasmine": "~5.1.0",
@@ -63,6 +65,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.4.0"
+    "typescript": "~5.4.0",
+    "typescript-eslint-language-service": "^5.0.5",
+    "typescript-language-server": "^4.3.3"
   }
 }

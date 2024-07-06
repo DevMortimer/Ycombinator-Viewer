@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 
 @Component({

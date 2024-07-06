@@ -97,7 +97,8 @@ export class PostsPage {
   }
 
   goToBookmarksPage() {
-    this.router.navigate(['/favorites']);
+    console.log(this.sharedService.getLinkPreviewImage("https://google.com"));
+    /* this.router.navigate(['/favorites']); */
   }
 
   identifyPost(index: number, post: Post) {
